@@ -5,20 +5,24 @@
     <title>Questionnaire</title>
     <script src="index.js"></script>
     <script src="src/admin.js"></script>
-    <script src="src/answer.js"></script>
     <script src="src/question.js"></script>
     <script src="src/test.js"></script>
 </head>
 <body>
+    <div id="admins-container">
+
+    </div>
+
     <div id="test-container">
         <div class="title">Clayton Academy Ethics Test</div>
         <div id="question" class="question"></div>
-        <label class="option"><input type="radio" name="option" value="1"><span id="opt1"></span></label>
-        <label class="option"><input type="radio" name="option" value="2"><span id="opt2"></span></label>
-        <label class="option"><input type="radio" name="option" value="3"><span id="opt3"></span></label>
-        <label class="option"><input type="radio" name="option" value="4"><span id="opt4"></span></label>
+        <label class="option"><input type="radio" name="option" value="A"><span id="optA">A</span></label>
+        <label class="option"><input type="radio" name="option" value="B"><span id="optB">B</span></label>
+        <label class="option"><input type="radio" name="option" value="C"><span id="optC">C</span></label>
+        <label class="option"><input type="radio" name="option" value="D"><span id="optD">D</span></label>
         <button id="nextButton" class="next-btn" onclick = "loadNextQuestion();">Next</button>
     </div>
+    
     <div id="result" class="result" style="display:none;">
     </div>
 </body>
