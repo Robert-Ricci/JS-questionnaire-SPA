@@ -4,7 +4,8 @@ class CreateQuestions < ActiveRecord::Migration[6.0]
       t.string :text
       t.string :choices
       t.string :answer
-
+      t.belongs_to :test
+      
       t.timestamps
     end
   end
