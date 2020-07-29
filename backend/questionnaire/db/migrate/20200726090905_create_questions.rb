@@ -3,8 +3,8 @@ class CreateQuestions < ActiveRecord::Migration[6.0]
     create_table :questions do |t|
       t.string :text
       t.string :choices
-      t.string :answer
-      t.belongs_to :test
+      t.string :selection
+      
       
       t.timestamps
     end

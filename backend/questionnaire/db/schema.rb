@@ -23,11 +23,9 @@ ActiveRecord::Schema.define(version: 2020_07_26_090945) do
   create_table "questions", force: :cascade do |t|
     t.string "text"
     t.string "choices"
-    t.string "answer"
-    t.integer "test_id"
+    t.string "selection"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
   create_table "tests", force: :cascade do |t|

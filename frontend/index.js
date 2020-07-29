@@ -16,6 +16,18 @@ function fetchAdmin () {
     })
 }
 
+function fetchQuestion () {
+    fetch(`${BASE_URL}/questions`)
+    .then(resp => resp.json())
+    .then(questions => {
+        for(const que of questions){
+            let q = new Question( que.text, que.choices, que.selection)
+            q.renderQuestion();
+            console.log(questions)
+        }
+    })
+}
+
 // const questions = [
 //     new Question(" 1) You’re in the cafeteria and it is time for school store. You’re a Positive and you brought a dollar so you can get a snack. However someone at your table is a Neutral and can’t get their own snacks. They pass you their dollar to buy a snack for them. What do you do?",
 //      ["A -You say no. Go to the school store and share your snack with the Neutral who wasn’t allowed to buy their own.",
@@ -76,4 +88,4 @@ function fetchAdmin () {
 //      "B - You look down at your desk and go about finishing the assignment that has been interrupted. While the teacher is in the hallway with the student you think to yourself “They're going to get into a hold.", 
 //     "C - You speak up at the student. Trying to get them to stop the behavior that is getting redirected. “You're going to get into a hold,” is what you tell them.", 
 //     "D - You look at the new student in class who is watching the same scene as you, “They're going to get into a hold,” is what you explain to the new student about what is going on in class."])
-// ]
+// ];
