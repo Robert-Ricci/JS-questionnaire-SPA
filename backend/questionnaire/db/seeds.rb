@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Admin.create(name:'Robert Ricci', username:"rmricci121", email:"rmricci121@gmail.com")
+ Admin.create(name:'Robert Ricci', username:"rmricci121", email:"rmricci121@gmail.com")
 
 
 Question.create(text:" 1) You’re in the cafeteria and it is time for school store. You’re a Positive and you brought a dollar so you can get a snack. However someone at your table is a Neutral and can’t get their own snacks. They pass you their dollar to buy a snack for them. What do you do?",

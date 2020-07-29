@@ -13,16 +13,17 @@ class Question {
 //}
 
 renderQuestion() {
-    let testDiv = document.getElementById("test-container")
-
-    testDiv.innerHTML += 
-    `
-    <ul>
-    <h3> ${this.text}</h3>
-    <li> ${this.choices}</li>
-    <li> ${this.selection}</li>
-    </ul>
+    let testDiv = document.getElementById("question")
+    let optDivA = document.getElementById("optA")
+    let optDivB = document.getElementById("optB")
+    let optDivC = document.getElementById("optC")
+    let optDivD = document.getElementById("optD")
     
-    `
+    testDiv.innerHTML += this.text
+    optDivA.innerHTML += this.choices[0]
+    optDivB.innerHTML += this.choices[1]
+    optDivC.innerHTML += this.choices[2]
+    optDivD.innerHTML += this.choices[3]
     }
 }
+
