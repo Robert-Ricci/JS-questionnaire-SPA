@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     fetchAdmin()
-    fetchQuestion()
+    //fetchQuestion()
 })
 
 const BASE_URL = "http://localhost:3000"
