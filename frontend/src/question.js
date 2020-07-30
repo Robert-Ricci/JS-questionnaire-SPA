@@ -13,13 +13,14 @@ class Question {
 //}
 
 renderQuestion() {
-    let testDiv = document.getElementById("question")
-    let optDivA = document.getElementById("optA")
-    let optDivB = document.getElementById("optB")
-    let optDivC = document.getElementById("optC")
-    let optDivD = document.getElementById("optD")
+    let questionDiv = document.getElementById("question")
+    let optDivA = document.getElementById("opt0")
+    let optDivB = document.getElementById("opt1")
+    let optDivC = document.getElementById("opt2")
+    let optDivD = document.getElementById("opt3")
     
-    testDiv.innerHTML += this.text
+    questionDiv.innerHTML += this.text.forEach
+
     optDivA.innerHTML += this.choices[0]
     optDivB.innerHTML += this.choices[1]
     optDivC.innerHTML += this.choices[2]

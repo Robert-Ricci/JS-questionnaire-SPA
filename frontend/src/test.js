@@ -1,13 +1,14 @@
 class Test {
-    constructor(name) {
+    constructor(name, questions) {
         this.total = 0
         this.name = name;
-        this.testIndex;
+        this.questions = questions;
+        this.questionIndex = 0;
     }
 }
 
-Test.prototype.retrieveTestIndex = function() {
-    return this.name[this.testIndex]
+Test.prototype.retrieveQuestionIndex = function() {
+    return this.questions[this.questionIndex]
 }
 
 Test.prototype.isEnded = function() {

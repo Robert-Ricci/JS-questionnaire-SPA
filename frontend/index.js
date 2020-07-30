@@ -24,8 +24,10 @@ function fetchQuestion () {
         for(const que of questions){
             let q = new Question( que.text, que.choices, que.selection)
             q.renderQuestion();
-            console.log(q)
+             console.log(q)
         }
     })
 }
+
+
 

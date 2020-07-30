@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Questionnaire</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <script src="index.js"></script>
     <script src="src/admin.js"></script>
     <script src="src/question.js"></script>
@@ -12,19 +13,24 @@
     <div id="admins-container">
 
     </div>
-
+    <div class="grid">
     <div id="test-container">
         <div class="title">Clayton Academy Ethics Test</div>
+        <hr style="margin-bottom: 20px">
         <button id="startButton" class="start-btn" onclick = "fetchQuestion();">Start</button>
         <div id="question" class="question"></div>
-        <label class="option"><input type="radio" name="option" value="A"><span id="optA"></span></label>
-        <label class="option"><input type="radio" name="option" value="B"><span id="optB"></span></label>
-        <label class="option"><input type="radio" name="option" value="C"><span id="optC"></span></label>
-        <label class="option"><input type="radio" name="option" value="D"><span id="optD"></span></label>
+        <label class="option"><input type="radio" name="option" value="A"><span id="opt0"></span></label></br>
+        <label class="option"><input type="radio" name="option" value="B"><span id="opt1"></span></label></br>
+        <label class="option"><input type="radio" name="option" value="C"><span id="opt2"></span></label></br>
+        <label class="option"><input type="radio" name="option" value="D"><span id="opt3"></span></label></br>
         <button id="nextButton" class="next-btn" onclick = "loadNextQuestion();">Next</button>
     </div>
-    
+</div>
+    <hr style="margin-top: 50px">
     <div id="result" class="result" style="display:none;">
     </div>
+    <footer>
+        <p id="progress">Question x of y</p>
+    </footer>
 </body>
 </html>
