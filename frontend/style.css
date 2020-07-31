@@ -6,7 +6,7 @@ body {
     width: 600px;
     height: 500px;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: #0ce5e1;
     padding: 10px 50px 50px 50px;
     border-radius: 50px;
     border: 2px solid #cbcbcb;
@@ -39,7 +39,7 @@ body {
     margin-top: 30px;
 }
 
-#btn0, #btn1, #btn2, #btn3 {
+#startButton, #nextButton {
     background-color: #778897;
     width: 250px;
     font-size: 20px;
@@ -50,7 +50,7 @@ body {
     padding: 10px 10px;
 }
 
-#btn0:hover, #btn1:hover, #btn2:hover, #btn3:hover {
+#startButton, #nextButton {
     cursor: pointer;
     background-color: #57636e;
 }

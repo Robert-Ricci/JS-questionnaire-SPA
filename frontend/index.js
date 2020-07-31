@@ -23,7 +23,7 @@ function fetchQuestion () {
     .then(questions => {
         for(const que of questions){
             let q = new Question( que.text, que.choices, que.selection)
-            q.renderQuestion();
+             q.renderQuestion();
              console.log(q)
         }
     })

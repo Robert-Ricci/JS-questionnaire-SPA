@@ -18,9 +18,13 @@ renderQuestion() {
     let optDivB = document.getElementById("opt1")
     let optDivC = document.getElementById("opt2")
     let optDivD = document.getElementById("opt3")
-    
-    questionDiv.innerHTML += this.text.forEach
+    const textArray = Array.from(this.text)
 
+    for(let i=0; i < textArray.length; i++){
+        questionDiv.innerHTML += textArray[i]
+        
+    }
+    
     optDivA.innerHTML += this.choices[0]
     optDivB.innerHTML += this.choices[1]
     optDivC.innerHTML += this.choices[2]
