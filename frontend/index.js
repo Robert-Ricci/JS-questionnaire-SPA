@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
     fetchAdmin()
-    //fetchQuestion()
+    nextButton();
+    Question.all
 })
+
 
 const BASE_URL = "http://localhost:3000"
 
@@ -18,16 +20,48 @@ function fetchAdmin () {
 }
 
 function fetchQuestion () {
-    fetch(`${BASE_URL}/questions`)
+    fetch(`${BASE_URL}/questions/1`)
     .then(resp => resp.json())
-    .then(questions => {
-        for(const que of questions){
-            let q = new Question( que.text, que.choices, que.selection)
-             q.renderQuestion();
-             console.log(q)
-        }
+    .then(json => {
+        let q = new Question( json.text, json.choices, json.selection)
+            q.renderQuestion();
+              console.log(q)
     })
+    
 }
 
 
+function runTest() {
+    let i = 0
+    let start = document.getElementById("startButton")
+    let next = document.getElementById("nextButton")
+    if (start.click === true ){
+        fetchCategory();
+    }else (next.click === true); {
+        fetchCategory() ; 
+    }
+}
+
+function nextButton(){
+    let button = document.querySelector('button#nextButton')
+    button.addEventListener("click", fetchCategory)
+}
+
+function fetchCategory() {
+    let id = parseInt(++event.target.dataset.id)
+    event.target.dataset.id = id
+    fetch(`http://127.0.0.1:3000/questions/${id}`)
+    .then(resp => resp.json())
+    .then(category => {
+        let q = new Question(category.text, category.choices, category.selection)
+        q.renderQuestion();
+        console.log(category)
+    })
+}
+
+function showProgress() {
+    let currentQuestionNumber = test.questionIndex + 1;
+    let element = document.getElementById("progress");
+    element.innerHTML = "Question " + currentQuestionNumber + " of " + test.questions.length;
+};
 
