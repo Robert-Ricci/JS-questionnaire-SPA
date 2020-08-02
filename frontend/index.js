@@ -1,13 +1,12 @@
-const options = Array.from(document.getElementsByClassName("option"))
 
 document.addEventListener("DOMContentLoaded", () => {
     fetchAdmin()
-    nextButton();
-    //  Question.fetchQuestion();
+     nextButton();
+    
 })
 
-
 const BASE_URL = "http://localhost:3000"
+const options = Array.from(document.getElementsByClassName("option"))
 
 function fetchAdmin () {
     fetch(`${BASE_URL}/admins`)
@@ -20,6 +19,11 @@ function fetchAdmin () {
         }
     })
 }
+function startQuiz() {
+    let start = document.getElementById("startButton")
+    start.addEventListener("click", fetchQuestion)
+    this.onclick = null;
+}
 
 function fetchQuestion () {
     let id = parseInt(++event.target.dataset.id)
@@ -31,15 +35,16 @@ function fetchQuestion () {
             q.renderQuestion();
               console.log(q)
     })
-    
+    this.onclick = null;
 }
 
-function startTest() {
-   const all = Question.all
-   all.forEach((question) => {
-        question.renderQuestion();
-   })
-}
+// function startTest() {
+//    const all = Question.all
+//    all.forEach((question) => {
+//         question.renderQuestion();
+//    })
+// }
+
 function fetchNextQuestion() {
     let id = parseInt(++event.target.dataset.id)
     event.target.dataset.id = id 
@@ -72,11 +77,4 @@ function showProgress() {
     element.innerHTML = "Question " + currentQuestionNumber + " of " + test.questions.length;
 };
 
-// const btn = document.querySelector('#btn');
-//         // handle click button
-//         btn.onclick = function () {
-//             const rbs = document.querySelectorAll('input[name="choice"]');
-//             let selectedValue;
-//             for (const rb of rbs) {
-//                 if (rb.checked) {
-//                     selectedValue = rb.value;
+

@@ -19,6 +19,6 @@ Test.prototype.select = function(selection) {
     if(this.getQuestionIndex().selectedAnswer(selection)) {
         this.total++;
     }
-
+    console.log(total)
     this.questionIndex++;
 }

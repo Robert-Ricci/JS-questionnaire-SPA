@@ -5,27 +5,6 @@ class Question {
         this.selection = selection;
     };
 
-//     static all = []
-
-//     static save(arrQues) {
-//         this.all.push(arrQues);
-//         console.log(all)
-//     }
-
-//    static fetchQuestion () {
-//     let id = parseInt(++event.target.dataset.id)
-//     event.target.dataset.id = id 
-//     fetch(`http://127.0.0.1:3000/questions/${id}`)
-//     .then(resp => resp.json())
-//     .then(json => {
-//         let q = new Question( json.text, json.choices, json.selection)
-//             q.save;
-//               console.log(q)
-//     })
-    
-// }
-
-
 
 
  renderQuestion() {
