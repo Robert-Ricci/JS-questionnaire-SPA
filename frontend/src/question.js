@@ -9,18 +9,20 @@ class Question {
 
 //     static save(arrQues) {
 //         this.all.push(arrQues);
+//         console.log(all)
 //     }
 
 //    static fetchQuestion () {
-//         fetch(`${BASE_URL}/questions/1`)
-//         .then(function(u){ return u.json();})
-//         .then(function(json){
-//             let q = new Question(json.text, json.choices, json.selection)
-//             Question.save(q);
-//             console.log(json)
-
-//     }
-//     )
+//     let id = parseInt(++event.target.dataset.id)
+//     event.target.dataset.id = id 
+//     fetch(`http://127.0.0.1:3000/questions/${id}`)
+//     .then(resp => resp.json())
+//     .then(json => {
+//         let q = new Question( json.text, json.choices, json.selection)
+//             q.save;
+//               console.log(q)
+//     })
+    
 // }
 
 
@@ -34,12 +36,12 @@ class Question {
     let optDivC = document.getElementById("opt2")
     let optDivD = document.getElementById("opt3")
     
-    questionDiv.innerHTML += this.text
+    questionDiv.innerHTML = this.text
 
-    optDivA.innerHTML += this.choices[0]
-    optDivB.innerHTML += this.choices[1]
-    optDivC.innerHTML += this.choices[2]
-    optDivD.innerHTML += this.choices[3]
+    optDivA.innerHTML = this.choices[0]
+    optDivB.innerHTML = this.choices[1]
+    optDivC.innerHTML = this.choices[2]
+    optDivD.innerHTML = this.choices[3]
     }
 
 }

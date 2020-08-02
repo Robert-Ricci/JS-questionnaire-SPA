@@ -1,7 +1,9 @@
+const options = Array.from(document.getElementsByClassName("option"))
+
 document.addEventListener("DOMContentLoaded", () => {
     fetchAdmin()
     nextButton();
-    Question.all
+    //  Question.fetchQuestion();
 })
 
 
@@ -32,24 +34,13 @@ function fetchQuestion () {
     
 }
 
-
-// function runTest() {
-//     let i = 0
-//     let start = document.getElementById("startButton")
-//     let next = document.getElementById("nextButton")
-//     if (start.click ===true ){
-//         fetchQuestion();
-//     }else {
-//         nextButton()  ; 
-//     }
-// }
-
-function nextButton(){
-    let button = document.querySelector('button#nextButton')
-    button.addEventListener("click", fetchCategory)
+function startTest() {
+   const all = Question.all
+   all.forEach((question) => {
+        question.renderQuestion();
+   })
 }
-
-function fetchCategory() {
+function fetchNextQuestion() {
     let id = parseInt(++event.target.dataset.id)
     event.target.dataset.id = id 
     fetch(`http://127.0.0.1:3000/questions/${id}`)
@@ -61,9 +52,31 @@ function fetchCategory() {
     })
 }
 
+
+function nextButton(){
+    let button = document.querySelector('button#nextButton') 
+    button.addEventListener("click", fetchNextQuestion)}
+
+
+function saveAnswer () {
+    options.forEach((option) => {
+        const selectedAnswer = option.target;
+            console.log(selectedAnswer)
+        })
+    }
+
+
 function showProgress() {
     let currentQuestionNumber = test.questionIndex + 1;
     let element = document.getElementById("progress");
     element.innerHTML = "Question " + currentQuestionNumber + " of " + test.questions.length;
 };
 
+// const btn = document.querySelector('#btn');
+//         // handle click button
+//         btn.onclick = function () {
+//             const rbs = document.querySelectorAll('input[name="choice"]');
+//             let selectedValue;
+//             for (const rb of rbs) {
+//                 if (rb.checked) {
+//                     selectedValue = rb.value;

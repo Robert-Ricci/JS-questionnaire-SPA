@@ -14,6 +14,7 @@ Test.prototype.getQuestionIndex = function() {
 Test.prototype.isEnded = function() {
     return this.testIndex === this.test.length
 }
+
 Test.prototype.select = function(selection) {
     if(this.getQuestionIndex().selectedAnswer(selection)) {
         this.total++;
