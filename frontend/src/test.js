@@ -1,8 +1,7 @@
 class Test {
-    constructor(name, questions) {
+    constructor(name) {
         this.selected = [];
         this.name = name;
-        this.answers = answers;
         this.questionIndex = 0;
     }
 
@@ -15,11 +14,11 @@ class Test {
         return this.questionIndex === this.questions.length
     };
 
-    selected = function(selection) {
-        if(this.getQuestionIndex().isSelectedAnswer(selection)) {
+    select = function() {
+        if(this.getQuestionIndex().isSelectedAnswer()) {
         this.selected++;
     }
-    console.log(total)
+    console.log(selected)
     this.questionIndex++;
 };
 

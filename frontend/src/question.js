@@ -2,7 +2,6 @@ class Question {
     constructor(text, choices, selection) {
         this.text = text;
         this.choices = choices;
-        this.selection = selection;
     };
 
     
@@ -21,10 +20,4 @@ class Question {
     optDivC.innerHTML = this.choices[2]
     optDivD.innerHTML = this.choices[3]
     }
-
-
-
-isSelectedAnswer = function(selection) {
-    return this.selection
-}
 }

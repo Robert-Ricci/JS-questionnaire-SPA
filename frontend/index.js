@@ -2,11 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
     fetchAdmin();
     nextButton(); 
     createNewTest();
+    saveAnswers();
 })
 
 const BASE_URL = "http://localhost:3000"
+const v = []
 
-//const test = new Test(name, questions) 
 
 function fetchAdmin () {
     fetch(`${BASE_URL}/admins`)
@@ -53,8 +54,23 @@ function nextButton(){
    
 }
 
+function saveAnswers () {
+   choices = Array.from(document.getElementsByClassName("option"))
+   
+   choices.forEach(choice => {
+       choice,addEventListener("click", e => {
+         const selectedChoice = e.target.value
+         v.push(selectedChoice)
+         console.log(v)
+         fetchNextQuestion();
+       })
+   })
+   
+   
+}
 function createNewTest () {
    let testForm = document.getElementById("test-form")
+   let name = document.getElementById("name")
     testForm.innerHTML += 
         `
         <form>
@@ -62,17 +78,17 @@ function createNewTest () {
             <input type="submit" value="Create Test User">
         </form>
         `
-        usersForm.addEventListener("submit", testFormSubmission)
+        testForm.addEventListener("submit", testFormSubmission)
 
     }
     
     function testFormSubmission(){
         event.preventDefault();
         let name = document.getElementById("name").value
-        let answers = document.getElementsById("answers").value
+        
+
         let test = {
             name: name,
-            answers:answers 
         }
     
         fetch(`${BASE_URL}/tests`, {
@@ -85,10 +101,11 @@ function createNewTest () {
         })
         .then(resp => resp.json())
         .then(test => {
-            let t  = new Test(test.id, test.name, test.answers)
-            t.renderUser();
+            let t  = new Test(test.id, test.name)
+            t.selected();
     })
-        
+    
+    
     }
 function showProgress() {
     let currentQuestionNumber = Questions.questionIndex + 1;
