@@ -1,12 +1,12 @@
-
 document.addEventListener("DOMContentLoaded", () => {
-    fetchAdmin()
-     nextButton();
-    
+    fetchAdmin();
+    nextButton(); 
+    createNewTest();
 })
 
 const BASE_URL = "http://localhost:3000"
-const options = Array.from(document.getElementsByClassName("option"))
+
+//const test = new Test(name, questions) 
 
 function fetchAdmin () {
     fetch(`${BASE_URL}/admins`)
@@ -19,62 +19,80 @@ function fetchAdmin () {
         }
     })
 }
-function startQuiz() {
-    let start = document.getElementById("startButton")
-    start.addEventListener("click", fetchQuestion)
-    this.onclick = null;
-}
+
 
 function fetchQuestion () {
     let id = parseInt(++event.target.dataset.id)
     event.target.dataset.id = id 
     fetch(`http://127.0.0.1:3000/questions/${id}`)
     .then(resp => resp.json())
-    .then(json => {
-        let q = new Question( json.text, json.choices, json.selection)
+    .then(question => {
+        let q = new Question( question.text, question.choices, question.selection)
             q.renderQuestion();
               console.log(q)
     })
-    this.onclick = null;
+     
 }
-
-// function startTest() {
-//    const all = Question.all
-//    all.forEach((question) => {
-//         question.renderQuestion();
-//    })
-// }
 
 function fetchNextQuestion() {
     let id = parseInt(++event.target.dataset.id)
     event.target.dataset.id = id 
     fetch(`http://127.0.0.1:3000/questions/${id}`)
     .then(resp => resp.json())
-    .then(category => {
-        let q = new Question(category.text, category.choices, category.selection)
+    .then(question => {
+        let q = new Question(question.text, question.choices, question.selection)
         q.renderQuestion() + 1;
-        console.log(category)
+        console.log(q)
     })
+    
 }
-
 
 function nextButton(){
     let button = document.querySelector('button#nextButton') 
-    button.addEventListener("click", fetchNextQuestion)}
+    button.addEventListener("click", fetchNextQuestion)
+   
+}
 
+function createNewTest () {
+   let testForm = document.getElementById("test-form")
+    testForm.innerHTML += 
+        `
+        <form>
+            Name: <input type="text" id="name"><br>
+            <input type="submit" value="Create Test User">
+        </form>
+        `
+        usersForm.addEventListener("submit", testFormSubmission)
 
-function saveAnswer () {
-    options.forEach((option) => {
-        const selectedAnswer = option.target;
-            console.log(selectedAnswer)
-        })
     }
-
-
+    
+    function testFormSubmission(){
+        event.preventDefault();
+        let name = document.getElementById("name").value
+        let answers = document.getElementsById("answers").value
+        let test = {
+            name: name,
+            answers:answers 
+        }
+    
+        fetch(`${BASE_URL}/tests`, {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+              },
+            body: JSON.stringify(test)
+        })
+        .then(resp => resp.json())
+        .then(test => {
+            let t  = new Test(test.id, test.name, test.answers)
+            t.renderUser();
+    })
+        
+    }
 function showProgress() {
-    let currentQuestionNumber = test.questionIndex + 1;
+    let currentQuestionNumber = Questions.questionIndex + 1;
     let element = document.getElementById("progress");
     element.innerHTML = "Question " + currentQuestionNumber + " of " + test.questions.length;
 };
-
 

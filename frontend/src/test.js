@@ -1,24 +1,26 @@
 class Test {
     constructor(name, questions) {
-        this.total = [];
+        this.selected = [];
         this.name = name;
-        this.questions = questions;
+        this.answers = answers;
         this.questionIndex = 0;
     }
-}
 
-Test.prototype.getQuestionIndex = function() {
-    return this.questions[this.questionIndex]
-}
 
-Test.prototype.isEnded = function() {
-    return this.testIndex === this.test.length
-}
+    getQuestionIndex = function() {
+        return this.questions[this.questionIndex]
+    };
 
-Test.prototype.select = function(selection) {
-    if(this.getQuestionIndex().selectedAnswer(selection)) {
-        this.total++;
+    isEnded = function() {
+        return this.questionIndex === this.questions.length
+    };
+
+    selected = function(selection) {
+        if(this.getQuestionIndex().isSelectedAnswer(selection)) {
+        this.selected++;
     }
     console.log(total)
     this.questionIndex++;
+};
+
 }

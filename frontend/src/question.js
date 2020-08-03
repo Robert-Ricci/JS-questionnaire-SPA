@@ -5,8 +5,7 @@ class Question {
         this.selection = selection;
     };
 
-
-
+    
  renderQuestion() {
 
     let questionDiv = document.getElementById("question")
@@ -23,7 +22,9 @@ class Question {
     optDivD.innerHTML = this.choices[3]
     }
 
+
+
+isSelectedAnswer = function(selection) {
+    return this.selection
 }
-
-
-
+}
