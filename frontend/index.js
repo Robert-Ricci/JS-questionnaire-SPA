@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     fetchAdmin();
-    nextButton(); 
     createNewTest();
-    saveAnswers();
+    
 })
 
 const BASE_URL = "http://localhost:3000"
@@ -22,47 +21,43 @@ function fetchAdmin () {
 }
 
 
-function fetchQuestion () {
-    let id = parseInt(++event.target.dataset.id)
-    event.target.dataset.id = id 
-    fetch(`http://127.0.0.1:3000/questions/${id}`)
-    .then(resp => resp.json())
-    .then(question => {
-        let q = new Question( question.text, question.choices, question.selection)
-            q.renderQuestion();
-              console.log(q)
-    })
-     
-}
-
 function fetchNextQuestion() {
     let id = parseInt(++event.target.dataset.id)
+    console.log(id)
     event.target.dataset.id = id 
     fetch(`http://127.0.0.1:3000/questions/${id}`)
     .then(resp => resp.json())
     .then(question => {
-        let q = new Question(question.text, question.choices, question.selection)
-        q.renderQuestion() + 1;
-        console.log(q)
+        let q = new Question(question.text, question.choices)
+        q.renderQuestion();
+        saveAnswers();
+        let input = document.querySelectorAll("input")
+        for(let i of input){
+            i.checked = false
+            
+        }
+        
     })
     
 }
 
-function nextButton(){
-    let button = document.querySelector('button#nextButton') 
-    button.addEventListener("click", fetchNextQuestion)
-   
-}
+// function nextButton(){
+//     let button = document.getElementById('nextButton') 
+//     button.addEventListener("click", () => {
+//         saveAnswers();
+        
+//     })
+// }
 
 function saveAnswers () {
    choices = Array.from(document.getElementsByClassName("option"))
    
    choices.forEach(choice => {
-       choice,addEventListener("click", e => {
-         const selectedChoice = e.target.value
-         v.push(selectedChoice)
+       choice.addEventListener("click", e => {
+           let selectedChoice = e.target.value
+           v.push(selectedChoice);
          console.log(v)
-         fetchNextQuestion();
+         
        })
    })
    
@@ -101,8 +96,8 @@ function createNewTest () {
         })
         .then(resp => resp.json())
         .then(test => {
-            let t  = new Test(test.id, test.name)
-            t.selected();
+            let t  = new Test(test.name)
+            console.log(t)
     })
     
     

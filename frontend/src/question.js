@@ -1,5 +1,5 @@
 class Question {
-    constructor(text, choices, selection) {
+    constructor(text, choices) {
         this.text = text;
         this.choices = choices;
     };

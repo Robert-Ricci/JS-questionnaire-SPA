@@ -13,18 +13,19 @@
     <div id="admins-container">
 
     </div>
+    <hr style="margin-bottom: 20px">
     <div class="grid">
     <div id="test-container">
         <div class="title">Clayton Academy Ethics Test</div>
         <hr style="margin-bottom: 20px">
         <div id="test-form"></div>
-        <button id="startButton" data-id="0" class="start-btn" onclick = "fetchQuestion(); this.disabled = true;">Start</button>
+        <button id="startButton" data-id="0" class="start-btn" onclick = "fetchNextQuestion(); this.disabled = true;">Start</button>
         <div id="question" class="question"></div>
-        <label class="option"  data-number="1"><input type="radio" name="option" value="A"><span id="opt0"></span></label></br>
-        <label class="option"  data-number="2"><input type="radio" name="option" value="B"><span id="opt1"></span></label></br>
-        <label class="option"  data-number="3"><input type="radio" name="option" value="C"><span id="opt2"></span></label></br>
-        <label class="option"  data-number="4"><input type="radio" name="option" value="D"><span id="opt3"></span></label></br>
-        <button id="nextButton" data-id="1" class="next-btn" onclick = "nextButton();">Next</button>
+            <label class="option" data-number="1"><input type="radio" name="option" value="A" ><span id="opt0"></span></label></br>
+            <label class="option" data-number="2"><input type="radio" name="option" value="B" ><span id="opt1"></span></label></br>
+            <label class="option" data-number="3"><input type="radio" name="option" value="C" ><span id="opt2"></span></label></br>
+            <label class="option" data-number="4"><input type="radio" name="option" value="D" ><span id="opt3"></span></label></br>
+        <button id="nextButton" data-id="1" class="next-btn" onclick = "fetchNextQuestion();">Next</button>
     </div>
     </div>
 </div>
