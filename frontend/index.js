@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
     fetchAdmin();
     createNewTest();
-    
+   
 })
 
 const BASE_URL = "http://localhost:3000"
 const v = []
-
+const MAX_QUESTION = 10
 
 function fetchAdmin () {
     fetch(`${BASE_URL}/admins`)
@@ -22,9 +22,11 @@ function fetchAdmin () {
 
 
 function fetchNextQuestion() {
+    
     let id = parseInt(++event.target.dataset.id)
     console.log(id)
     event.target.dataset.id = id 
+    if(id < 11)
     fetch(`http://127.0.0.1:3000/questions/${id}`)
     .then(resp => resp.json())
     .then(question => {
@@ -34,35 +36,39 @@ function fetchNextQuestion() {
         let input = document.querySelectorAll("input")
         for(let i of input){
             i.checked = false
-            
-        }
+            }
         
     })
     
 }
 
-// function nextButton(){
-//     let button = document.getElementById('nextButton') 
-//     button.addEventListener("click", () => {
-//         saveAnswers();
+function nextButton(){
+    let button = document.getElementById("nextButton") 
+    button.addEventListener("click", () => {
+        saveAnswers();
         
-//     })
-// }
-
-function saveAnswers () {
-   choices = Array.from(document.getElementsByClassName("option"))
-   
-   choices.forEach(choice => {
-       choice.addEventListener("click", e => {
-           let selectedChoice = e.target.value
-           v.push(selectedChoice);
-         console.log(v)
-         
-       })
-   })
-   
+    })
    
 }
+
+function saveAnswers () {
+    choices = Array.from(document.getElementsByClassName("option"))
+    console.log(choices)
+    if(v.length === 0){
+    choices.forEach(choice => {
+        choice.addEventListener("click", e => {
+     //debugger;
+            let selectedChoice = e.target.value
+            console.log('selected choice', selectedChoice)
+            //debugger;
+            v.push(selectedChoice);
+             console.log('v', v)
+        })
+    })
+ }
+ }
+
+
 function createNewTest () {
    let testForm = document.getElementById("test-form")
    let name = document.getElementById("name")
