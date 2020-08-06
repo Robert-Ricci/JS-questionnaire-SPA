@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
     fetchAdmin();
-    createNewTest();
+    saveNewTest();
    
 })
 
 const BASE_URL = "http://localhost:3000"
 const v = []
-const MAX_QUESTION = 10
+const MAX_QUESTION = 11
 
 function fetchAdmin () {
     fetch(`${BASE_URL}/admins`)
@@ -22,11 +22,11 @@ function fetchAdmin () {
 
 
 function fetchNextQuestion() {
-    
+    let button = document.getElementById("nextButton")
     let id = parseInt(++event.target.dataset.id)
     console.log(id)
     event.target.dataset.id = id 
-    if(id < 11)
+    if(id < MAX_QUESTION){
     fetch(`http://127.0.0.1:3000/questions/${id}`)
     .then(resp => resp.json())
     .then(question => {
@@ -37,17 +37,23 @@ function fetchNextQuestion() {
         for(let i of input){
             i.checked = false
             }
-        
+            if(id === 10){
+                button.innerText = "Submit"
+                }
     })
+}else {
     
+}
 }
 
 function nextButton(){
     let button = document.getElementById("nextButton") 
+    let id = parseInt(++event.target.dataset.id)
     button.addEventListener("click", () => {
         saveAnswers();
         
     })
+    console.log(id)
    
 }
 
@@ -57,10 +63,8 @@ function saveAnswers () {
     if(v.length === 0){
     choices.forEach(choice => {
         choice.addEventListener("click", e => {
-     //debugger;
             let selectedChoice = e.target.value
             console.log('selected choice', selectedChoice)
-            //debugger;
             v.push(selectedChoice);
              console.log('v', v)
         })
@@ -69,14 +73,13 @@ function saveAnswers () {
  }
 
 
-function createNewTest () {
+function saveNewTest () {
    let testForm = document.getElementById("test-form")
    let name = document.getElementById("name")
     testForm.innerHTML += 
         `
         <form>
             Name: <input type="text" id="name"><br>
-            <input type="submit" value="Create Test User">
         </form>
         `
         testForm.addEventListener("submit", testFormSubmission)
