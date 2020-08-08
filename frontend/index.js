@@ -51,6 +51,7 @@ function fetchNextQuestion() {
         
         let resultDiv = document.getElementById("result")
         questionDiv.innerText = v;
+        
         optDivA.innerHTML = ''
         optDivB.innerHTML = ''
         optDivC.innerHTML = ''
@@ -86,7 +87,12 @@ function saveAnswers () {
  }
  
  }
-
+//  var val = '';
+//  if(document.getElementById('radio1').checked) {
+//    val = document.getElementById('radio1').value
+//  }else if(document.getElementById('radio2').checked) {
+//    val = document.getElementById('radio2').value
+//  }
 
 function saveNewTest () {
    let testForm = document.getElementById("test-form")
@@ -105,7 +111,7 @@ function saveNewTest () {
     function testFormSubmission(){
         event.preventDefault();
         let name = document.getElementById("name").value
-        let selected = [...v]
+        let selected = v
         
         
         let test = {
@@ -121,7 +127,7 @@ function saveNewTest () {
             answer9: selected[8],
             answer10: selected[9]
         }
-        console.log(name)
+        console.log(test.answer1)
 
         fetch(`${BASE_URL}/tests`, {
             method: "POST",
@@ -133,7 +139,7 @@ function saveNewTest () {
         })
         .then(resp => resp.json())
         .then(test => {
-            let t  = new Test(test.name, test.answer1,test.answer2,test.answer3,test.answer4,test.answer5,test.answer6,test.answer7,test.answer8,test.answer9,test.answer10 )
+            let t  = new Test(test.name,test.answer1,test.answer2,test.answer3,test.answer4,test.answer5,test.answer6,test.answer7,test.answer8,test.answer9,test.answer10 )
             console.log(test.answer2)
             console.log(t)
     })
