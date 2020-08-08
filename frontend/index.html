@@ -14,12 +14,14 @@
 
     </div>
     <hr style="margin-bottom: 20px">
-    <div class="grid">
+    <button id="startButton" data-id="0" class="start-btn" onclick = "fetchNextQuestion(); this.disabled = true;">Start</button>
     <div id="test-container">
+    
+    <div class="grid">
         <div class="title">Clayton Academy Ethics Test</div>
         <hr style="margin-bottom: 20px">
         <div id="test-form"></div>
-        <button id="startButton" data-id="0" class="start-btn" onclick = "fetchNextQuestion(); this.disabled = true;">Start</button>
+        
         <div id="question" class="question"></div>
             <label class="option" data-number="1"><input type="radio" name="option" value="A" ><span id="opt0"></span></label></br>
             <label class="option" data-number="2"><input type="radio" name="option" value="B" ><span id="opt1"></span></label></br>

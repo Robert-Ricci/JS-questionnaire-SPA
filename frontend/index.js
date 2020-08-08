@@ -21,7 +21,10 @@ function fetchAdmin () {
 }
 
 function fetchNextQuestion() {
+    const gridDiv = document.getElementById("test-container")
+    gridDiv.style.display = "block"
     let button = document.getElementById("nextButton")
+    
     let id = parseInt(++event.target.dataset.id)
     event.target.dataset.id = id 
     if(id < MAX_QUESTION){
