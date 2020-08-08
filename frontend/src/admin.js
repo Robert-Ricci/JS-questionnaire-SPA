@@ -5,8 +5,6 @@ class Admin {
         this.email = email;
     }
 
-
-//Allow teacher to access tests and view results
 renderAdmin() {
     let adminsDiv = document.getElementById("admins-container")
 

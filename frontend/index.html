@@ -11,7 +11,7 @@
 </head>
 <body>
     <div id="admins-container">
-
+<a href="test_results.html"><button id="testScores" class="score-btn">Test Scores</button></a>
     </div>
     <hr style="margin-bottom: 20px">
     <button id="startButton" data-id="0" class="start-btn" onclick = "fetchNextQuestion(); this.disabled = true;">Start</button>
@@ -21,7 +21,6 @@
         <div class="title">Clayton Academy Ethics Test</div>
         <hr style="margin-bottom: 20px">
         <div id="test-form"></div>
-        
         <div id="question" class="question"></div>
             <label class="option" data-number="1"><input type="radio" name="option" value="A" ><span id="opt0"></span></label></br>
             <label class="option" data-number="2"><input type="radio" name="option" value="B" ><span id="opt1"></span></label></br>
@@ -32,7 +31,8 @@
     </div>
 </div>
     <hr style="margin-top: 50px">
-    <div id="result" class="result" >
+    <div id="reset" class="reset" >
+        <button id="resetButton" class="reset-button">Reset</button>
     </div>
     <footer>
         <p id="progress"></p>

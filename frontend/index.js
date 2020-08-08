@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     fetchAdmin();
-    
+    resetTest();
 })
 
 const BASE_URL = "http://localhost:3000"
@@ -21,8 +21,8 @@ function fetchAdmin () {
 }
 
 function fetchNextQuestion() {
-    const gridDiv = document.getElementById("test-container")
-    gridDiv.style.display = "block"
+    const testContainerDiv = document.getElementById("test-container")
+    testContainerDiv.style.display = "block"
     let button = document.getElementById("nextButton")
     
     let id = parseInt(++event.target.dataset.id)
@@ -42,6 +42,7 @@ function fetchNextQuestion() {
             if(id === 10){
                 button.innerHTML = "Submit"
                 saveNewTest();
+                resetButton.style.display = "block"
                 }
     })
 }else {
@@ -52,16 +53,24 @@ function fetchNextQuestion() {
         let optDivC = document.getElementById("opt2")
         let optDivD = document.getElementById("opt3")
         
-        let resultDiv = document.getElementById("result")
-        questionDiv.innerText = v;
+        questionDiv.innerText = "Test Complete. Push reset for new test";
         
         optDivA.innerHTML = ''
         optDivB.innerHTML = ''
         optDivC.innerHTML = ''
         optDivD.innerHTML = ''
-        // return window.location.assign("index.html")
+        
     }
 }
+
+}
+
+function resetTest() {
+    const resetButton = document.getElementById("resetButton")
+    resetButton.addEventListener("click", () =>{
+        return window.location.assign("index.html")
+    })
+    
 }
 
 function nextButton(){
@@ -74,33 +83,25 @@ function nextButton(){
 }
 
 function saveAnswers () {
-    choices = Array.from(document.getElementsByClassName("option"))
+    let choices = Array.from(document.getElementsByClassName("option"))
     if(v.length === 0){
-    choices.forEach(choice => {
+       choices.forEach(choice => {
         choice.addEventListener("click", e => {
-            let selectedChoice = e.target.value
+             selectedChoice = e.target.value
             //console.log('selected choice', selectedChoice)
             v.push(selectedChoice);
              console.log('v', v)
              return v;
         })
         
-    })
-    
+    })  
+}
  }
- 
- }
-//  var val = '';
-//  if(document.getElementById('radio1').checked) {
-//    val = document.getElementById('radio1').value
-//  }else if(document.getElementById('radio2').checked) {
-//    val = document.getElementById('radio2').value
-//  }
 
 function saveNewTest () {
    let testForm = document.getElementById("test-form")
    let button = document.getElementById("nextButton")
-   let name = document.getElementById("name")
+   //let name = document.getElementById("name")
     testForm.innerHTML += 
         `
         <form>

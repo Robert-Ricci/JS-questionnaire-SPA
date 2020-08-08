@@ -44,7 +44,7 @@ body {
     margin-top: 30px;
 }
 
-#startButton, #nextButton {
+#startButton, #nextButton, #testScores {
     background-color: #778897;
     width: 250px;
     font-size: 20px;
@@ -55,13 +55,26 @@ body {
     padding: 10px 10px;
 }
 
-#startButton, #nextButton {
+#resetButton {
+    background-color: #778897;
+    width: 250px;
+    font-size: 20px;
+    color: #fff;
+    border: 1px solid #1D3C6A;
+    border-radius: 50px;
+    margin: 10px 40px 10px 0px;
+    padding: 10px 10px;
+    display: none;
+}
+
+#startButton, #nextButton, #resetButton, #testScores {
     cursor: pointer;
     background-color: #57636e;
 }
 
-#btn0:focus, #btn1:focus, #btn2:focus, #btn3:focus {
-    outline: 0;
+#opt0:focus, #opt1:focus, #opt2:focus, #opt3:focus {
+    outline: 1;
+    cursor: pointer;
 }
 
 #progress {
@@ -80,4 +93,16 @@ body {
     height: 2rem;
     background-color: #0ce5e1;
     width: 0%;
+}
+
+#key {
+    width: 85%;
+    margin: 0px auto;
+    position: fixed;
+    padding-bottom: 100px;
+    box-sizing: border-box;
+}
+
+#testResults {
+    padding-top: 225px;
 }
