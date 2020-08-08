@@ -20,7 +20,6 @@ function fetchAdmin () {
     })
 }
 
-
 function fetchNextQuestion() {
     let button = document.getElementById("nextButton")
     let id = parseInt(++event.target.dataset.id)
@@ -31,6 +30,7 @@ function fetchNextQuestion() {
     .then(question => {
         let q = new Question(question.text, question.choices)
         q.renderQuestion();
+        showProgress();
         saveAnswers();
         let input = document.querySelectorAll("input")
         for(let i of input){
@@ -56,7 +56,7 @@ function fetchNextQuestion() {
         optDivB.innerHTML = ''
         optDivC.innerHTML = ''
         optDivD.innerHTML = ''
-        resultDiv.innerHTML = v
+        
     }
 }
 }
@@ -144,11 +144,15 @@ function saveNewTest () {
             console.log(t)
     })
     
-    
     }
+
+
 function showProgress() {
-    let currentQuestionNumber = Questions.questionIndex + 1;
+    let currentQuestionNumber = v.length + 1;
+    const progressBarFill = document.getElementById("progressBarFill")
+    console.log(currentQuestionNumber)
     let element = document.getElementById("progress");
-    element.innerHTML = "Question " + currentQuestionNumber + " of " + test.questions.length;
-};
+    element.innerHTML = "Question " + currentQuestionNumber + " of " + (MAX_QUESTION - 1);
+    progressBarFill.style.width = `${(currentQuestionNumber / (MAX_QUESTION - 1)) * 100}%`;
+}
 
