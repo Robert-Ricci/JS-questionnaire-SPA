@@ -11,8 +11,8 @@ renderAdmin() {
     adminsDiv.innerHTML += 
     `
     <ul>
-    <h3>Username: ${this.username}</h3>
-    <li> Name: ${this.name} - Email: ${this.email} </li>
+    <h3>  Name: ${this.name}</h3>
+    <li>  Email: ${this.email} </li>
     </ul>
     
     `

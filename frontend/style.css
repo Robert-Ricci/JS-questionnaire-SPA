@@ -1,5 +1,10 @@
+html {
+    /* font-family: 'Roboto', sans-serif;   */
+}
 body {
     background-color: #eeeeee;
+    /* font-family: 'Ubuntu', sans-serif; */
+        
 }
 
 #test-container{
@@ -15,7 +20,7 @@ body {
     border-radius: 50px;
     border: 2px solid #cbcbcb;
     box-shadow: 10px 15px 5px #cbcbcb;
-    
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .grid h1 {
@@ -111,4 +116,9 @@ body {
     margin-left: auto;
     margin-right: auto;
     width: 75%;
+  }
+
+  @font-face {
+   src: url('https://fonts.googleapis.com/css?family=Roboto|Yeseva+One&display=swap');
+   src: url('https://fonts.googleapis.com/css?family=Merriweather|Ubuntu');
   }
