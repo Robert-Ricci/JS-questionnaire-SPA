@@ -15,7 +15,6 @@ function fetchAdmin () {
         for(const admin of admins){
             let a = new Admin( admin.name, admin.username, admin.email)
             a.renderAdmin();
-            console.log(a)
         }
     })
 }
@@ -24,7 +23,6 @@ function fetchNextQuestion() {
     const testContainerDiv = document.getElementById("test-container")
     testContainerDiv.style.display = "block"
     let button = document.getElementById("nextButton")
-    
     let id = parseInt(++event.target.dataset.id)
     event.target.dataset.id = id 
     if(id < MAX_QUESTION){
@@ -52,6 +50,7 @@ function fetchNextQuestion() {
         let optDivB = document.getElementById("opt1")
         let optDivC = document.getElementById("opt2")
         let optDivD = document.getElementById("opt3")
+        
         
         questionDiv.innerText = "Test Complete. Push reset for new test";
         
@@ -88,9 +87,7 @@ function saveAnswers () {
        choices.forEach(choice => {
         choice.addEventListener("click", e => {
              selectedChoice = e.target.value
-            //console.log('selected choice', selectedChoice)
             v.push(selectedChoice);
-             console.log('v', v)
              return v;
         })
         
@@ -101,7 +98,6 @@ function saveAnswers () {
 function saveNewTest () {
    let testForm = document.getElementById("test-form")
    let button = document.getElementById("nextButton")
-   //let name = document.getElementById("name")
     testForm.innerHTML += 
         `
         <form>
@@ -142,8 +138,6 @@ function saveNewTest () {
         .then(resp => resp.json())
         .then(test => {
             let t  = new Test(test.name,test.answer1,test.answer2,test.answer3,test.answer4,test.answer5,test.answer6,test.answer7,test.answer8,test.answer9,test.answer10 )
-            
-            console.log(t)
     })
     
     }

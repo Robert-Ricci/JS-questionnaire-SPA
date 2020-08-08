@@ -5,6 +5,7 @@ body {
 #test-container{
     display:none;
 }
+
 .grid {
     width: 600px;
     height: 500px;
@@ -25,12 +26,6 @@ body {
     color: #ffffff;
     padding: 2px 0px;
     border-radius: 50px;
-}
-
-#score {
-    color: #5A6772;
-    text-align: center;
-    font-size: 30px;
 }
 
 .grid #question {
@@ -101,8 +96,19 @@ body {
     position: fixed;
     padding-bottom: 100px;
     box-sizing: border-box;
+    opacity: 1;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #testResults {
     padding-top: 225px;
 }
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+  }

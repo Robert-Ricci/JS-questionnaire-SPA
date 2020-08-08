@@ -14,7 +14,6 @@ function fetchTests () {
             let t = new Test( test.name,test.answer1,test.answer2,test.answer3,test.answer4,test.answer5,
                     test.answer6,test.answer7,test.answer8,test.answer9,test.answer10 )
             t.renderTest();
-            console.log(t)
         }
     })
 }

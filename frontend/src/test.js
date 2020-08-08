@@ -1,6 +1,5 @@
 class Test {
     constructor(name, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10) {
-        let selected = []
         this.answer1 = answer1;
         this.answer2 = answer2;
         this.answer3 = answer3;
