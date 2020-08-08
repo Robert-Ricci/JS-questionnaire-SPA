@@ -42,7 +42,7 @@ function fetchNextQuestion() {
                 }
     })
 }else {
-    if(id >= MAX_QUESTION){
+    if(id = MAX_QUESTION){
         let questionDiv = document.getElementById("question")
         let optDivA = document.getElementById("opt0")
         let optDivB = document.getElementById("opt1")
@@ -56,7 +56,7 @@ function fetchNextQuestion() {
         optDivB.innerHTML = ''
         optDivC.innerHTML = ''
         optDivD.innerHTML = ''
-        
+        // return window.location.assign("index.html")
     }
 }
 }
@@ -113,7 +113,6 @@ function saveNewTest () {
         let name = document.getElementById("name").value
         let selected = v
         
-        
         let test = {
             name: name,
             answer1: selected[0],
@@ -127,8 +126,7 @@ function saveNewTest () {
             answer9: selected[8],
             answer10: selected[9]
         }
-        console.log(test.answer1)
-
+        
         fetch(`${BASE_URL}/tests`, {
             method: "POST",
             headers: {
@@ -140,7 +138,7 @@ function saveNewTest () {
         .then(resp => resp.json())
         .then(test => {
             let t  = new Test(test.name,test.answer1,test.answer2,test.answer3,test.answer4,test.answer5,test.answer6,test.answer7,test.answer8,test.answer9,test.answer10 )
-            console.log(test.answer2)
+            
             console.log(t)
     })
     
@@ -150,8 +148,9 @@ function saveNewTest () {
 function showProgress() {
     let currentQuestionNumber = v.length + 1;
     const progressBarFill = document.getElementById("progressBarFill")
-    console.log(currentQuestionNumber)
+    const progressBar = document.getElementById("progressBar")
     let element = document.getElementById("progress");
+    progressBar.style.display ="block"
     element.innerHTML = "Question " + currentQuestionNumber + " of " + (MAX_QUESTION - 1);
     progressBarFill.style.width = `${(currentQuestionNumber / (MAX_QUESTION - 1)) * 100}%`;
 }
