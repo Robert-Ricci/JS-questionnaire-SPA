@@ -43,7 +43,7 @@ function fetchNextQuestion() {
                 resetButton.style.display = "block"
                 }
     })
-}else {
+        }else {
     if(id = MAX_QUESTION){
         let questionDiv = document.getElementById("question")
         let optDivA = document.getElementById("opt0")
@@ -61,7 +61,6 @@ function fetchNextQuestion() {
         
     }
 }
-
 }
 
 function resetTest() {
@@ -69,7 +68,6 @@ function resetTest() {
     resetButton.addEventListener("click", () =>{
         return window.location.assign("index.html")
     })
-    
 }
 
 function nextButton(){
@@ -77,7 +75,6 @@ function nextButton(){
     let id = parseInt(++event.target.dataset.id)
     button.addEventListener("click", () => {
         saveAnswers();
-        
     })
 }
 
@@ -89,10 +86,9 @@ function saveAnswers () {
              selectedChoice = e.target.value
             v.push(selectedChoice);
              return v;
-        })
-        
+        }) 
     })  
-}
+   }
  }
 
 function saveNewTest () {
@@ -108,10 +104,10 @@ function saveNewTest () {
 
     }
     
-    function testFormSubmission(){
-        event.preventDefault();
-        let name = document.getElementById("name").value
-        let selected = v
+function testFormSubmission(){
+    event.preventDefault();
+    let name = document.getElementById("name").value
+    let selected = v
         
         let test = {
             name: name,
@@ -139,8 +135,7 @@ function saveNewTest () {
         .then(test => {
             let t  = new Test(test.name,test.answer1,test.answer2,test.answer3,test.answer4,test.answer5,test.answer6,test.answer7,test.answer8,test.answer9,test.answer10 )
     })
-    
-    }
+}
 
 
 function showProgress() {
