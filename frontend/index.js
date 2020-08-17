@@ -140,8 +140,8 @@ function testFormSubmission(){
 
 function showProgress() {
     let currentQuestionNumber = v.length + 1;
-    const progressBarFill = document.getElementById("progressBarFill")
     const progressBar = document.getElementById("progressBar")
+    const progressBarFill = document.getElementById("progressBarFill")
     let element = document.getElementById("progress");
     progressBar.style.display ="block"
     element.innerHTML = "Question " + currentQuestionNumber + " of " + (MAX_QUESTION - 1);
